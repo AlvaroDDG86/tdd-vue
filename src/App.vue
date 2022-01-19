@@ -1,6 +1,6 @@
 <template>
   <div>
-    <new-message-form />
+    <new-message-form @send="addMessage"/>
   </div>
 </template>
 
@@ -11,5 +11,15 @@ export default {
   components: {
     NewMessageForm,
   },
+  data() {
+    return {
+      messages: []
+    }
+  },
+  methods: {
+    addMessage(text) {
+      this.messages.unshift(text)
+    }
+  }
 };
 </script>
